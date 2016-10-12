@@ -1,5 +1,7 @@
 # NAME
 
+[![Build Status](https://travis-ci.org/ichigotake/access_log.pl.svg?branch=master)](https://travis-ci.org/ichigotake/access_log.pl)
+
 access\_log.pl - Apache access log (as LTSV) searcher
 
 # SYNOPSIS
