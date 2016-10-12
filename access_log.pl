@@ -2,7 +2,6 @@
 use strict;
 use warnings;
 use utf8;
-use lib::core::only;
 use Getopt::Long qw(:config posix_default no_ignore_case);
 use Pod::Usage qw/pod2usage/;
 use Time::Piece;
