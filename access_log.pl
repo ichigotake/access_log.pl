@@ -48,7 +48,7 @@ access_log.pl - Apache access log (as LTSV) searcher
 
 =head1 Source code
 
-https://github.com/ichigotake/access_log.pl
+L<https://github.com/ichigotake/access_log.pl>
 
     git clone https://github.com/ichigotake/access_log.pl
 
