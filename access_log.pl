@@ -2,9 +2,11 @@
 use strict;
 use warnings;
 use utf8;
-use Getopt::Long qw(:config posix_default no_ignore_case);
+use Getopt::Long qw(:config posix_default no_ignore_case bundling auto_help auto_version);
 use Pod::Usage qw/pod2usage/;
 use Time::Piece;
+
+our $VERSION = '0.1';
 
 my $days;
 my $error_only;
