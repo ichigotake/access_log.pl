@@ -1,6 +1,6 @@
 requires 'perl', '5.008001';
 
-on 'develop' => sub {
+on 'test' => sub {
   requires 'local::lib';
   requires 'Path::Tiny';
   requires 'Pod::Markdown';
