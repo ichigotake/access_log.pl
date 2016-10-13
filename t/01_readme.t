@@ -9,9 +9,8 @@ my $md = `pod2markdown access_log.pl`;
 my $badge_url = 'https://travis-ci.org/ichigotake/access_log.pl.svg';
 my @diff = grep {m/^[\+\-]/}    # include diff only
         grep {!m/^[\+\-]$/}     # exclude blank line in diff
-        grep {!m/^[\+\-]{3} $/}     # exclude header
         grep {!m/$badge_url/}   # exclude badge in diff
-        split("$/", diff('README.md', \$md));
+        split("$/", diff('README.md', \$md, {STYLE => 'OldStyle'}));
 
 is scalar(@diff), 0;
 
