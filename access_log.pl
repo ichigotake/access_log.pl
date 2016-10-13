@@ -19,7 +19,7 @@ GetOptions(
 $days ||= 1;
 my $fname = shift or &help();
 
-my $target_time = $days eq 'all' ? 0 : time() - $days*24*60*60;
+my $target_time = $days > 0 ? time() - $days*24*60*60 : 0;
 open my$fh, '<', $fname;
 while (my $line = <$fh>) {
     my %ltsv = map {split/:/, $_, 2} split(/\t/, $line);
