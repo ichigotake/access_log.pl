@@ -8,9 +8,11 @@ use Time::Piece;
 
 my $days;
 my $error_only;
+my @query = ();
 GetOptions(
     "days=i" => \$days,
     "error-only!" => \$error_only,
+    "pattern|p=s" => \@query,
 ) or &help();
 $days ||= 1;
 my $fname = shift or &help();
@@ -22,6 +24,19 @@ while (my $line = <$fh>) {
     my $time = Time::Piece->strptime($ltsv{time}, '%d/%b/%Y:%T %z')->epoch;
     next if $time < $target_time;
     next if (defined($error_only) && $ltsv{status} =~ m/^[^45]/);
+    if (@query) {
+        my $matched = 1;
+        for my$q (@query) {
+            my ($key, $pattern) = split(/:/, $q, 2);
+            if ($pattern =~ m{^/(.+)/$}) {
+                my $macher = $1;
+                $matched = 0 unless $ltsv{$key} =~ m{$macher};
+            } else {
+                $matched = 0 unless $ltsv{$key} eq $pattern;
+            }
+        }
+        next unless $matched;
+    }
     print $line;
 }
 close $fh;
@@ -39,11 +54,11 @@ access_log.pl - Apache access log (as LTSV) searcher
 
 =head1 SYNOPSIS
 
-    $ access_log.pl --error-only /var/log/httpd/access_log
+    $ access_log.pl --error-only -p "method:/(POST)|(PUT))/" /var/log/httpd/access_log
 
 =head1 OPTIONS
 
-    access_log.pl [--days=1] [--error-only] file_name
+    access_log.pl [--days=1] [--error-only] [-p "key:/regex/"]file_name
 
 =head1 Source code
 
