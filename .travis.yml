@@ -7,5 +7,5 @@ perl:
   - "5.16"
   - "5.14"
 script:
-  - prove t/
+  - prove t
 sudo: false
