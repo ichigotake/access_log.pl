@@ -70,7 +70,7 @@ L<https://github.com/ichigotake/access_log.pl>
 
 =head1 AUTHOR
 
-ichigotake <ichigotake.san@gmail.com>
+ichigotake E<lt>ichigotake.san@gmail.comE<gt>
 
 =head1 LICENSE
 

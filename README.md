@@ -20,7 +20,7 @@ access\_log.pl - Apache access log (as LTSV) searcher
 
 # AUTHOR
 
-ichigotake &lt;ichigotake.san@gmail.com>
+ichigotake <ichigotake.san@gmail.com>
 
 # LICENSE
 
