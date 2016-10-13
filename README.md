@@ -6,11 +6,11 @@ access\_log.pl - Apache access log (as LTSV) searcher
 
 # SYNOPSIS
 
-    $ access_log.pl --error-only /var/log/httpd/access_log
+    $ access_log.pl --error-only -p "method:/(POST)|(PUT))/" /var/log/httpd/access_log
 
 # OPTIONS
 
-    access_log.pl [--days=1] [--error-only] file_name
+    access_log.pl [--days=1] [--error-only] [-p "key:/regex/"]file_name
 
 # Source code
 
